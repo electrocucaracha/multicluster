@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.4",
-  "serialNumber": "urn:uuid:c9da7f0f-181b-451c-ae2c-9445be16d771",
+  "serialNumber": "urn:uuid:69e0a2f6-72cc-48fd-814e-d8f20c213576",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-03-01T01:09:47Z",
+    "timestamp": "2023-04-01T00:58:14Z",
     "tools": [
       {
         "vendor": "CycloneDX",
@@ -13,23 +13,23 @@
         "hashes": [
           {
             "alg": "MD5",
-            "content": "5c842b87b939c3135050e4c56fa7af44"
+            "content": "245973a38c087f8784fc74ec84e532aa"
           },
           {
             "alg": "SHA-1",
-            "content": "7c2f615739a0c794c03c1df91a0463033f11d09c"
+            "content": "8bd4cf9bc7e7ed66a5d799884a752bcdaac008f3"
           },
           {
             "alg": "SHA-256",
-            "content": "1d435a5a867c6723ea5ef3e843bdb6b2b543b6737148ea8e47f4eb053849ca85"
+            "content": "c31211257c386c6514048d70765751808aa30c7264e770b226a06e96e704487b"
           },
           {
             "alg": "SHA-384",
-            "content": "e4ffb41d7adfc0a158a3ba110b7d80d3d5b97f3d98444afa4be29c840a13fa802614295542a532c75e46452abd47091e"
+            "content": "ae36314209001826f21c1dbc20d55a0e66153bede9c147efb031b00fd01f222646d27ca1de773ae9f0d4fd583ef31cff"
           },
           {
             "alg": "SHA-512",
-            "content": "9a87dabd5f79fd9ec7c7ff319ea3d53ab9f3966fa85b617d0802dc349c80c4578c1599a424a7ebdd5dce018dc10b80d8d69f34e86d27a25687409e94e8fb162e"
+            "content": "8c98f982e1de4b576cc28a8e2d7b4bc2031ef37261d850c213510dc20877e923686607ac12c779196579c0269f76e33e456dd205d045a8795871a6fd0cf3beea"
           }
         ],
         "externalReferences": [
@@ -45,11 +45,11 @@
       }
     ],
     "component": {
-      "bom-ref": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230227202754-566acb1cb221?type=module",
+      "bom-ref": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230301010947-f6fb59fc439f?type=module",
       "type": "application",
       "name": "github.com/electrocucaracha/multi-cluster",
-      "version": "v0.0.0-20230227202754-566acb1cb221",
-      "purl": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230227202754-566acb1cb221?type=module",
+      "version": "v0.0.0-20230301010947-f6fb59fc439f",
+      "purl": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230301010947-f6fb59fc439f?type=module",
       "externalReferences": [
         {
           "url": "https://github.com/electrocucaracha/multi-cluster",
@@ -537,7 +537,7 @@
   ],
   "dependencies": [
     {
-      "ref": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230227202754-566acb1cb221?type=module",
+      "ref": "pkg:golang/github.com/electrocucaracha/multi-cluster@v0.0.0-20230301010947-f6fb59fc439f?type=module",
       "dependsOn": [
         "pkg:golang/github.com/pkg/errors@v0.9.1?type=module",
         "pkg:golang/github.com/spf13/cobra@v1.6.1?type=module",
