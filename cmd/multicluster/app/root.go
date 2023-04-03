@@ -19,8 +19,8 @@ package app
 import (
 	"os"
 
-	"github.com/electrocucaracha/multi-cluster/internal/multicluster"
-	wanem "github.com/electrocucaracha/multi-cluster/internal/wan"
+	"github.com/electrocucaracha/multicluster/internal/multicluster"
+	wanem "github.com/electrocucaracha/multicluster/internal/wan"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	kindcmd "sigs.k8s.io/kind/pkg/cmd"

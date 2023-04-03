@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	wanem "github.com/electrocucaracha/multi-cluster/internal/wan"
+	wanem "github.com/electrocucaracha/multicluster/internal/wan"
 	"github.com/pkg/errors"
 	"sigs.k8s.io/kind/pkg/log"
 )

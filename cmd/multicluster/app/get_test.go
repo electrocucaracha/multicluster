@@ -17,7 +17,7 @@ limitations under the License.
 package app_test
 
 import (
-	"github.com/electrocucaracha/multi-cluster/cmd/multicluster/app"
+	"github.com/electrocucaracha/multicluster/cmd/multicluster/app"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/cobra"

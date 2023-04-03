@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/electrocucaracha/multi-cluster/internal/multicluster"
+	"github.com/electrocucaracha/multicluster/internal/multicluster"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

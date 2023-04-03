@@ -17,7 +17,7 @@ limitations under the License.
 package app
 
 import (
-	"github.com/electrocucaracha/multi-cluster/internal/multicluster"
+	"github.com/electrocucaracha/multicluster/internal/multicluster"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"sigs.k8s.io/kind/pkg/cluster"

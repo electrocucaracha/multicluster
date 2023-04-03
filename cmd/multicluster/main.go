@@ -16,7 +16,7 @@ limitations under the License.
 
 package main
 
-import "github.com/electrocucaracha/multi-cluster/cmd/multicluster/app"
+import "github.com/electrocucaracha/multicluster/cmd/multicluster/app"
 
 func main() {
 	app.Execute()

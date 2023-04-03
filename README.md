@@ -1,18 +1,18 @@
 # Multi-Cluster tool
 <!-- markdown-link-check-disable-next-line -->
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![GitHub Super-Linter](https://github.com/electrocucaracha/multi-cluster/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/electrocucaracha/multicluster/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
-[![Go Report Card](https://goreportcard.com/badge/github.com/electrocucaracha/multi-cluster)](https://goreportcard.com/report/github.com/electrocucaracha/multi-cluster)
-[![GoDoc](https://godoc.org/github.com/electrocucaracha/multi-cluster?status.svg)](https://godoc.org/github.com/electrocucaracha/multi-cluster)
-![visitors](https://visitor-badge.glitch.me/badge?page_id=electrocucaracha.multi-cluster)
+[![Go Report Card](https://goreportcard.com/badge/github.com/electrocucaracha/multicluster)](https://goreportcard.com/report/github.com/electrocucaracha/multicluster)
+[![GoDoc](https://godoc.org/github.com/electrocucaracha/multicluster?status.svg)](https://godoc.org/github.com/electrocucaracha/multicluster)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=electrocucaracha.multicluster)
 
 This tool provisions and interconnects Kubernetes clusters through the usage of
 the [KinD API][1]. It uses a [configuration yaml file](scripts/config.yml) to
 define the topology.
 
 ```bash
-go install github.com/electrocucaracha/multi-cluster/...
+go install github.com/electrocucaracha/multicluster/...
 multicluster create --config=scripts/config.yml
 ```
 

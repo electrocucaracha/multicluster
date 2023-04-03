@@ -1,4 +1,4 @@
-module github.com/electrocucaracha/multi-cluster
+module github.com/electrocucaracha/multicluster
 
 go 1.20
 

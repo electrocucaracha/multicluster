@@ -17,7 +17,7 @@ limitations under the License.
 package multicluster_test
 
 import (
-	"github.com/electrocucaracha/multi-cluster/internal/multicluster"
+	"github.com/electrocucaracha/multicluster/internal/multicluster"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 	"sigs.k8s.io/kind/pkg/apis/config/v1alpha4"
