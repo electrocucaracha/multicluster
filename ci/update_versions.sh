@@ -18,9 +18,11 @@ if ! command -v go >/dev/null; then
     source /etc/profile.d/path.sh
 fi
 
+rm go.*
+go mod init github.com/electrocucaracha/multicluster
 go mod tidy -go="$(curl -sL https://golang.org/VERSION?m=text | sed 's/go//;s/\..$//')"
 GOPATH=$(go env GOPATH)
 if [ ! -f "$GOPATH/bin/cyclonedx-gomod" ]; then
     go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@latest
 fi
-"$GOPATH/bin/cyclonedx-gomod" mod -licenses -json -output mod_multi-cluster.bom.json
+"$GOPATH/bin/cyclonedx-gomod" mod -licenses -json -output mod_multicluster.bom.json
