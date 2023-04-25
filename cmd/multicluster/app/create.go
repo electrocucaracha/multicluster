@@ -20,7 +20,6 @@ import (
 	"github.com/electrocucaracha/multicluster/internal/multicluster"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-	"sigs.k8s.io/kind/pkg/cluster"
 )
 
 func NewCreateCommand(provider multicluster.DataSource) *cobra.Command {
@@ -34,30 +33,19 @@ Multicluster deployment create KIND clusters in independent bridges, that are co
 through an special container that handles the routing and the WAN emulation.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			flags := cmd.Flags()
-			name, err := getName(flags)
-			if err != nil {
-				return errors.Wrap(err, "failed to retrieve the name of the multi-cluster")
-			}
-
 			configPath, err := getConfigPath(flags)
 			if err != nil {
 				return errors.Wrap(err, "failed to retrieve the configuration file path of the multi-cluster")
 			}
 			wanEmulatorImg, _ := flags.GetString("wanem")
 
-			if err := provider.Create(name, configPath, wanEmulatorImg); err != nil {
-				return errors.Wrapf(err, "failed to create %s multi-cluster", name)
+			if err := provider.Create(configPath, wanEmulatorImg); err != nil {
+				return errors.Wrap(err, "failed to create a multi-cluster")
 			}
 
 			return nil
 		},
 	}
-
-	cmd.Flags().String(
-		"name",
-		cluster.DefaultName,
-		"the multicluster context name",
-	)
 
 	cmd.Flags().String(
 		"config",

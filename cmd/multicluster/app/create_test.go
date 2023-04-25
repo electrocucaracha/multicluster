@@ -23,7 +23,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func (m mock) Create(name, configPath, wanem string) error {
+func (m mock) Create(configPath, wanem string) error {
 	return nil
 }
 
@@ -46,13 +46,10 @@ var _ = Describe("Create Command", func() {
 		}
 	},
 		Entry("when the default options are provided", true),
-		Entry("when a multi-cluster name option is defined", true, "--name", "testName"),
-		Entry("when multi-cluster name and configuration path options are defined",
-			true, "--name", "testName", "--config", "config.yml"),
-		Entry("when multi-cluster name, configuration path and WAN emulator image options are defined",
-			true, "--name", "testName", "--config", "config.yml", "--wanem", "docker"),
-		Entry("when an empty multi-cluster name option is provided",
-			false, "--name", ""),
+		Entry("when the configuration path options are defined",
+			true, "--config", "config.yml"),
+		Entry("when the configuration path and WAN emulator image options are defined",
+			true, "--config", "config.yml", "--wanem", "docker"),
 		Entry("when an empty configuration path option is provided",
 			false, "--name", "test", "--config", ""),
 	)

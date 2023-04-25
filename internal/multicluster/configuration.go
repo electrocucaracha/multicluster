@@ -26,6 +26,7 @@ import (
 
 // Config struct for multicluster config.
 type Config struct {
+	Name     string                   `yaml:"name"`
 	Clusters map[string]ClusterConfig `yaml:"clusters"`
 }
 
@@ -35,7 +36,7 @@ type ClusterConfig struct {
 }
 
 type ConfigReader interface {
-	GetClustersInfo(string) (*map[string]ClusterConfig, error)
+	GetConfigInfo(string) (*Config, error)
 }
 
 type Reader struct{}
@@ -46,8 +47,8 @@ func NewConfigReader() *Reader {
 	return new(Reader)
 }
 
-// GetClustersInfo returns the clusters information decoded from the configuration file.
-func (c Reader) GetClustersInfo(configPath string) (*map[string]ClusterConfig, error) {
+// GetConfigInfo returns the configuration information decoded from the file.
+func (c Reader) GetConfigInfo(configPath string) (*Config, error) {
 	// Create config structure
 	config := &Config{}
 
@@ -66,5 +67,5 @@ func (c Reader) GetClustersInfo(configPath string) (*map[string]ClusterConfig, e
 		return nil, errors.Wrap(err, "failed to decode multi-cluster configuration file")
 	}
 
-	return &config.Clusters, nil
+	return config, nil
 }

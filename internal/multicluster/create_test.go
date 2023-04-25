@@ -67,14 +67,17 @@ var _ = Describe("Create Service", func() {
 	var wanProvider *mockWanProvider
 	var configReader *mockConfigReader
 	var containerProvider *mockContainerProvider
-	emptyClusterConfig := map[string]multicluster.ClusterConfig{}
-	testClusterConfig := map[string]multicluster.ClusterConfig{
-		"test": {
-			NodeSubnet: "172.88.0.0/16",
-			Cluster: &v1alpha4.Cluster{
-				Networking: v1alpha4.Networking{
-					PodSubnet:     "10.196.0.0/16",
-					ServiceSubnet: "10.96.0.0/16",
+	emptyConfig := multicluster.Config{}
+	testConfig := multicluster.Config{
+		Name: "Lab",
+		Clusters: map[string]multicluster.ClusterConfig{
+			"test": {
+				NodeSubnet: "172.88.0.0/16",
+				Cluster: &v1alpha4.Cluster{
+					Networking: v1alpha4.Networking{
+						PodSubnet:     "10.196.0.0/16",
+						ServiceSubnet: "10.96.0.0/16",
+					},
 				},
 			},
 		},
@@ -92,11 +95,11 @@ var _ = Describe("Create Service", func() {
 	})
 
 	DescribeTable("create execution service process", func(
-		clusterConfig map[string]multicluster.ClusterConfig, clusters []string,
+		config multicluster.Config, clusters []string,
 		wanErrorMessages []string, clusterProviderErrorMessages []string,
 		containerProviderErrorMessages []string, shouldSucceed bool,
 	) {
-		configReader.ClustersInfo = clusterConfig
+		configReader.ConfigInfo = config
 		clusterProvider.Clusters = clusters
 		errMsgExpected := wanProvider.PushErrorMessages(wanErrorMessages)
 		if errMsgExpected == "" {
@@ -106,7 +109,7 @@ var _ = Describe("Create Service", func() {
 			errMsgExpected = containerProvider.PushErrorMessages(containerProviderErrorMessages)
 		}
 
-		err := provider.Create("name", "configPath", "wanem")
+		err := provider.Create("configPath", "wanem")
 		if shouldSucceed {
 			Expect(err).NotTo(HaveOccurred())
 		} else {
@@ -115,8 +118,8 @@ var _ = Describe("Create Service", func() {
 		}
 	},
 		Entry("when empty cluster config is provided",
-			emptyClusterConfig, []string{""}, nil, nil, nil, true),
+			emptyConfig, []string{""}, nil, nil, nil, true),
 		Entry("when a valid cluster config is provided",
-			testClusterConfig, []string{"node01"}, nil, nil, nil, true),
+			testConfig, []string{"node01"}, nil, nil, nil, true),
 	)
 })

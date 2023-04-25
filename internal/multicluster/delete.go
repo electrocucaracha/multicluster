@@ -22,7 +22,7 @@ import (
 )
 
 func (p KindDataSource) Delete(name, configPath string) error {
-	clustersInfo, err := p.configReader.GetClustersInfo(configPath)
+	configInfo, err := p.configReader.GetConfigInfo(configPath)
 	if err != nil {
 		return errors.Wrap(err, "failed to get clusters information")
 	}
@@ -36,7 +36,7 @@ func (p KindDataSource) Delete(name, configPath string) error {
 		return errors.Wrap(err, "failed to retrieve the kind clusters")
 	}
 
-	for clusterName := range *clustersInfo {
+	for clusterName := range *&configInfo.Clusters {
 		for _, cluster := range clusters {
 			if strings.Contains(cluster, clusterName) {
 				if err = p.clusterProvider.Delete(cluster, ""); err != nil {

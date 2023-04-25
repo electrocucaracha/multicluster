@@ -27,7 +27,7 @@ wanem_img_name="wanem:0.0.1"
 if ! sudo docker ps --format "{{.Image}}" | grep -q "kindest/node"; then
     # shellcheck disable=SC1091
     [ -f /etc/profile.d/path.sh ] && source /etc/profile.d/path.sh
-    sudo -E "$(command -v go)" run ../... create --config ./config.yml --name test --wanem "$wanem_img_name"
+    sudo -E "$(command -v go)" run ../... create --config ./config.yml --wanem "$wanem_img_name"
     mkdir -p "$HOME/.kube"
     sudo chown -R "$USER" "$HOME/.kube/"
 fi

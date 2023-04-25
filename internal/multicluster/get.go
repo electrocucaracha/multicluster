@@ -28,7 +28,7 @@ import (
 type DataSource interface {
 	Get(string) error
 	Delete(string, string) error
-	Create(string, string, string) error
+	Create(string, string) error
 }
 
 type KindDataSource struct {

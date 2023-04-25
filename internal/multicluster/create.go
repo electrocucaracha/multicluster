@@ -25,19 +25,19 @@ import (
 	"sigs.k8s.io/kind/pkg/cluster"
 )
 
-func (p KindDataSource) Create(name, configPath, dockerWanImage string) error {
-	clustersInfo, err := p.configReader.GetClustersInfo(configPath)
+func (p KindDataSource) Create(configPath, dockerWanImage string) error {
+	configInfo, err := p.configReader.GetConfigInfo(configPath)
 	if err != nil {
 		return errors.Wrap(err, "failed to get clusters information")
 	}
 
 	// create the container to emulate the WAN network
-	wanName, err := p.wanProvider.Create(name, dockerWanImage)
+	wanName, err := p.wanProvider.Create(configInfo.Name, dockerWanImage)
 	if err != nil {
-		return errors.Wrapf(err, "failed to create %s wan container", name)
+		return errors.Wrapf(err, "failed to create %s wan container", configInfo.Name)
 	}
 
-	for clusterName, clusterConfig := range *clustersInfo {
+	for clusterName, clusterConfig := range configInfo.Clusters {
 		clusterConfig.Cluster.Name = clusterName
 
 		// each cluster has its own docker network with the clustername

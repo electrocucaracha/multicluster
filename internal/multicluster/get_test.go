@@ -82,12 +82,12 @@ type mockWanProvider struct {
 }
 
 type mockConfigReader struct {
-	ClustersInfo map[string]multicluster.ClusterConfig
+	ConfigInfo multicluster.Config
 	mockBase
 }
 
-func (m *mockConfigReader) GetClustersInfo(string) (*map[string]multicluster.ClusterConfig, error) {
-	return &m.ClustersInfo, m.popError()
+func (m *mockConfigReader) GetConfigInfo(configPath string) (*multicluster.Config, error) {
+	return &m.ConfigInfo, m.popError()
 }
 
 var _ = Describe("Get Service", func() {

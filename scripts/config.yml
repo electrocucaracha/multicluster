@@ -8,6 +8,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
+name: lab
 clusters:
   central:
     nodeSubnet: "172.88.0.0/16"

@@ -41,9 +41,12 @@ var _ = Describe("Delete Service", func() {
 	var wanProvider *mockWanProvider
 	var configReader *mockConfigReader
 	var containerProvider *mockContainerProvider
-	emptyClusterConfig := map[string]multicluster.ClusterConfig{}
-	testClusterConfig := map[string]multicluster.ClusterConfig{
-		"test": {},
+	emptyConfig := multicluster.Config{}
+	testConfig := multicluster.Config{
+		Name: "testlab",
+		Clusters: map[string]multicluster.ClusterConfig{
+			"test": {},
+		},
 	}
 
 	BeforeEach(func() {
@@ -58,11 +61,11 @@ var _ = Describe("Delete Service", func() {
 	})
 
 	DescribeTable("delete execution service process", func(
-		clusterConfig map[string]multicluster.ClusterConfig, clusters []string,
+		config multicluster.Config, clusters []string,
 		wanErrorMessages []string, clusterProviderErrorMessages []string,
 		containerProviderErrorMessages []string, shouldSucceed bool,
 	) {
-		configReader.ClustersInfo = clusterConfig
+		configReader.ConfigInfo = config
 		clusterProvider.Clusters = clusters
 		errMsgExpected := wanProvider.PushErrorMessages(wanErrorMessages)
 		if errMsgExpected == "" {
@@ -81,27 +84,27 @@ var _ = Describe("Delete Service", func() {
 		}
 	},
 		Entry("when empty cluster config is provided",
-			emptyClusterConfig, []string{""}, nil, nil, nil, true),
+			emptyConfig, []string{""}, nil, nil, nil, true),
 		Entry("when non-empty cluster config is provided",
-			testClusterConfig, []string{""}, nil, nil, nil, true),
+			testConfig, []string{""}, nil, nil, nil, true),
 		Entry("when non-empty cluster config is provided but no cluster matches",
-			testClusterConfig, []string{"kind"}, nil, nil, nil, true),
+			testConfig, []string{"kind"}, nil, nil, nil, true),
 		Entry("when non-empty cluster config is provided and cluster matches",
-			testClusterConfig, []string{"test"}, nil, nil, nil, true),
+			testConfig, []string{"test"}, nil, nil, nil, true),
 		Entry("when WAN emulator raises an error during deletion",
-			emptyClusterConfig, []string{""}, []string{"wan provider error"}, nil,
+			emptyConfig, []string{""}, []string{"wan provider error"}, nil,
 			nil, false),
 		Entry("when cluster provider raises an error during retrieval",
-			emptyClusterConfig, []string{""}, nil,
+			emptyConfig, []string{""}, nil,
 			[]string{"cluster provider retrieval error"}, nil, false),
 		Entry("when cluster provider raises an error during deletion",
-			testClusterConfig, []string{"test"}, nil,
+			testConfig, []string{"test"}, nil,
 			[]string{"cluster provider deletion error", ""}, nil, true),
 		Entry("when container provider raises an error during retrieval",
-			testClusterConfig, []string{"test"}, nil, nil,
+			testConfig, []string{"test"}, nil, nil,
 			[]string{"container provider retrieval error"}, false),
 		Entry("when container provider raises an error during deletion",
-			testClusterConfig, []string{"test"}, nil, nil,
+			testConfig, []string{"test"}, nil, nil,
 			[]string{"container provider deletion error", ""}, true),
 	)
 })
