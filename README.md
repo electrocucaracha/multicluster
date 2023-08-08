@@ -5,7 +5,8 @@
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 [![Go Report Card](https://goreportcard.com/badge/github.com/electrocucaracha/multicluster)](https://goreportcard.com/report/github.com/electrocucaracha/multicluster)
 [![GoDoc](https://godoc.org/github.com/electrocucaracha/multicluster?status.svg)](https://godoc.org/github.com/electrocucaracha/multicluster)
-![visitors](https://visitor-badge.glitch.me/badge?page_id=electrocucaracha.multicluster)
+<!-- markdown-link-check-disable-next-line -->
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=electrocucaracha.multicluster)
 
 This tool provisions and interconnects Kubernetes clusters through the usage of
 the [KinD API][1]. It uses a [configuration yaml file](scripts/config.yml) to

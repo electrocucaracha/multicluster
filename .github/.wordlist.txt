@@ -5,7 +5,6 @@ eth
 frontend
 fsSL
 gitea
-godoc
 GoDoc
 goreportcard
 href
@@ -13,10 +12,9 @@ https
 img
 initVagrant
 Kubernetes
+laobi
 libvirt
-Libvirt
 linter
-Linter
 ly
 multicluster
 opensource
