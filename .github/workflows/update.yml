@@ -19,11 +19,11 @@ jobs:
       pull-requests: write # for technote-space/create-pr-action to create a PR
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-go@v5.2.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
+      - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # 5.2.0
         with:
           go-version: "^1.20"
-      - uses: technote-space/create-pr-action@v2.1.4
+      - uses: technote-space/create-pr-action@91114507cf92349bec0a9a501c2edf1635427bc5 # 2.1.4
         with:
           EXECUTE_COMMANDS: |
             ./ci/update_versions.sh
@@ -34,9 +34,9 @@ jobs:
   check-dockerfile:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
       - name: update Dockerfile
-        uses: ludeeus/dockerfile-updater@21.01.0
+        uses: ludeeus/dockerfile-updater@eaf8ea79220d076eb46c127fa9895e3de3e0a512 # 21.01.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pr_title: "chore: update Dockerfile"

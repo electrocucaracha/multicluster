@@ -26,8 +26,8 @@ jobs:
       scripts: ${{ steps.filter.outputs.scripts }}
       golang: ${{ steps.filter.outputs.golang }}
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: dorny/paths-filter@v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
+      - uses: dorny/paths-filter@de90cc6fb38fc0963ad72b210f1f284cd68cea36 # 3.0.2
         if: ${{ !env.ACT }}
         id: filter
         with:
@@ -43,9 +43,9 @@ jobs:
     needs: changes
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
       - name: Run the sh-checker
-        uses: luizm/action-sh-checker@v0.9.0
+        uses: luizm/action-sh-checker@17bd25a6ee188d2b91f677060038f4ba37ba14b2 # 0.9.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SHFMT_OPTS: -i 4 -s
@@ -57,11 +57,11 @@ jobs:
     needs: changes
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: actions/setup-go@v5.2.0
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
+      - uses: actions/setup-go@3041bf56c941b39c61721a86cd11f3bb1338122a # 5.2.0
         with:
           go-version: "^1.19"
-      - uses: actions/cache@v4.2.0
+      - uses: actions/cache@1bd1e32a3bdc45362d1e726936510720a7c30a57 # 4.2.0
         if: ${{ !env.ACT }}
         with:
           path: |
@@ -70,13 +70,13 @@ jobs:
           key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
           restore-keys: |
             ${{ runner.os }}-go-
-      - uses: GoTestTools/gotestfmt-action@v2.2.0
+      - uses: GoTestTools/gotestfmt-action@8b4478c7019be847373babde9300210e7de34bfb # 2.2.0
       - name: Run tests
         run: |
           set -euo pipefail
           go test -json -v ./... 2>&1 | tee /tmp/gotest.log | gotestfmt
       - name: Upload test log
-        uses: actions/upload-artifact@v4.5.0
+        uses: actions/upload-artifact@6f51ac03b9356f520e9adb1b1b7802705f340c2b # 4.5.0
         if: ${{ !env.ACT }}
         with:
           name: test-log
@@ -87,7 +87,7 @@ jobs:
     needs: check-scripts-format
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # 4.2.2
       - name: Deploy Multi-Cluster services
         working-directory: ./scripts
         env:
