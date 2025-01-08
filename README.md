@@ -1,11 +1,15 @@
 # Multi-Cluster tool
+
 <!-- markdown-link-check-disable-next-line -->
+
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub Super-Linter](https://github.com/electrocucaracha/multicluster/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Ruby Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop)
 [![Go Report Card](https://goreportcard.com/badge/github.com/electrocucaracha/multicluster)](https://goreportcard.com/report/github.com/electrocucaracha/multicluster)
 [![GoDoc](https://godoc.org/github.com/electrocucaracha/multicluster?status.svg)](https://godoc.org/github.com/electrocucaracha/multicluster)
+
 <!-- markdown-link-check-disable-next-line -->
+
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=electrocucaracha.multicluster)
 
 This tool provisions and interconnects Kubernetes clusters through the usage of
@@ -20,7 +24,7 @@ multicluster create --config=scripts/config.yml
 ## Provisioning process
 
 The [Vagrant tool][2] can be used for provisioning an Ubuntu Focal
-Virtual Machine. It's highly recommended to use the  *setup.sh* script
+Virtual Machine. It's highly recommended to use the _setup.sh_ script
 of the [bootstrap-vagrant project][3] for installing Vagrant
 dependencies and plugins required for this project. That script
 supports two Virtualization providers (Libvirt and VirtualBox) which

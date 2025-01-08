@@ -556,24 +556,18 @@
     },
     {
       "ref": "pkg:golang/github.com/evanphx/json-patch/v5@v5.6.0?type=module",
-      "dependsOn": [
-        "pkg:golang/github.com/pkg/errors@v0.9.1?type=module"
-      ]
+      "dependsOn": ["pkg:golang/github.com/pkg/errors@v0.9.1?type=module"]
     },
     {
       "ref": "pkg:golang/github.com/google/safetext@v0.0.0-20220905092116-b49f7bc46da2?type=module",
-      "dependsOn": [
-        "pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module"
-      ]
+      "dependsOn": ["pkg:golang/gopkg.in/yaml.v3@v3.0.1?type=module"]
     },
     {
       "ref": "pkg:golang/github.com/inconshreveable/mousetrap@v1.0.1?type=module"
     },
     {
       "ref": "pkg:golang/github.com/mattn/go-isatty@v0.0.14?type=module",
-      "dependsOn": [
-        "pkg:golang/golang.org/x/sys@v0.6.0?type=module"
-      ]
+      "dependsOn": ["pkg:golang/golang.org/x/sys@v0.6.0?type=module"]
     },
     {
       "ref": "pkg:golang/github.com/pelletier/go-toml@v1.9.4?type=module"
@@ -601,9 +595,7 @@
     },
     {
       "ref": "pkg:golang/github.com/vishvananda/netns@v0.0.4?type=module",
-      "dependsOn": [
-        "pkg:golang/golang.org/x/sys@v0.6.0?type=module"
-      ]
+      "dependsOn": ["pkg:golang/golang.org/x/sys@v0.6.0?type=module"]
     },
     {
       "ref": "pkg:golang/golang.org/x/sys@v0.6.0?type=module"
@@ -632,9 +624,7 @@
     },
     {
       "ref": "pkg:golang/sigs.k8s.io/yaml@v1.3.0?type=module",
-      "dependsOn": [
-        "pkg:golang/gopkg.in/yaml.v2@v2.4.0?type=module"
-      ]
+      "dependsOn": ["pkg:golang/gopkg.in/yaml.v2@v2.4.0?type=module"]
     }
   ]
 }
